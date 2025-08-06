@@ -47,6 +47,9 @@ console.log(myArray)
 
 // Convertir un array a set
 
+myArray.push("angel_eduardo@angsis.com")
+console.log(myArray)
+
 mySet = new Set(myArray)
 console.log(mySet)
 
