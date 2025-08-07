@@ -50,9 +50,31 @@ let myMapMonth = new Map([
     ["12", "Diciembre"],
 ])
 console.log(myMapMonth)
+
 // 8. Comprueba si el mes número 5 existe en el map e imprime su valor
 console.log('------------------ 8 ------------------')
 console.log(myMapMonth.get("5"))
+
 // 9. Añade al mapa una clave con un array que almacene los meses de verano
+console.log('------------------ 9 ------------------')
+let veranoMeses = ['Diciembre', 'Enero', 'Febrero']
+
+myMapMonth.set("verano", veranoMeses)
+console.log(myMapMonth.get("verano"))
+console.log(myMapMonth)
 
 // 10. Crea un Array, transfórmalo a un Set y almacénalo en un Map
+console.log('------------------ 10 ------------------')
+let myArray = ["Cambur", "Peras", "Manzanas", "Aguacate", "Melón", "Aguacate"]
+console.log(myArray)
+
+let mySet = new Set(myArray)
+console.log(mySet)
+
+let myMap = new Map()
+myMap.set("frutas", mySet)
+console.log(myMap)
+
+for (let fruta of myMap.get("frutas")) {
+    console.log(`Fruta: ${fruta}`)
+}
