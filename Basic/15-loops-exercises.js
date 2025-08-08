@@ -58,8 +58,15 @@ while (numero <= 50) {
 }
 
 // 4. Dado un array de nombres, usa un bucle para imprimir cada nombre en la consola
+console.log("---------------------- 4 ----------------------")
+let myArray = ["Angel", "Pedro", "Juan", "María", "Alicia", "Carmen"]
+
+for (nombre of myArray) {
+    console.log(nombre)
+}
 
 // 5. Escribe un bucle que cuente el número de vocales en una cadena de texto
+let myCadena
 
 // 6. Dado un array de números, usa un bucle para multiplicar todos los números y mostrar el producto
 
