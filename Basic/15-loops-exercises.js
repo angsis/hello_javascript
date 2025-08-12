@@ -141,14 +141,44 @@ console.log(`Mi cadena de texto invertida es: ${myStringTextInvert}`)
 
 // 9. Usa un bucle para generar los primeros 10 números de la secuencia de Fibonacci
 console.log("---------------------- 9 ----------------------")
-let fibonacciResult = ""
-let fibonacci = 0
 
-for (i = 2; i < 10; i++) {
-    fibonacci = i-2 + i-1
-    console.log(fibonacci)
+let num1 = 0
+let num2 = 1
+
+console.log(num1)
+console.log(num2)
+
+for (let i = 2; i < 10; i++) {
+    const numPosterior = num1 + num2
+    console.log(numPosterior)
+    num1 = num2
+    num2 = numPosterior
 }
 
-console.log(fibonacci)
+let t = 2
+num1 = 0
+num2 = 1
+
+console.log(num1)
+console.log(num2)
+
+while ( t < 10) {
+    let posterior = num1 + num2
+    console.log(posterior)   
+    num1 = num2
+    num2 = posterior
+    t++ 
+}
 
 // 10. Dado un array de números, usa un bucle para crear un nuevo array que contenga solo los números mayores a 10
+console.log("---------------------- 10 ----------------------")
+let ArrayNum = [20, 15, 1, 5, 9, 100, 25, 8]
+let ArrayNumNew = []
+
+for (let num of ArrayNum) {
+    if (num > 10) {
+        ArrayNumNew.push(num)
+    }
+}
+console.log(`El nuevo array es: [${ArrayNumNew}]`)
+console.log(`El nuevo array es: ${JSON.stringify(ArrayNumNew)}`)
