@@ -52,7 +52,20 @@ let empresa = {
 console.log(empresa)
 
 // 8. Accede y muestra el valor de las propiedades anidadas
+console.log("------------------------ 8 --------------------------")
+console.log(empresa.address.street)
+console.log(empresa.address.state)
+console.log(empresa.address.country)
 
 // 9. Comprueba si los dos objetos creados son iguales
+console.log("------------------------ 9 --------------------------")
+console.log(animals === empresa)
 
 // 10. Comprueba si dos propiedades diferentes son iguales
+console.log("------------------------ 10 --------------------------")
+let person = {
+    firstName: "Eduardo",
+    secondName: "Eduardo"
+}
+
+console.log(person.firstName === person.secondName)
