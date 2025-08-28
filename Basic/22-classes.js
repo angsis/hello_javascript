@@ -92,7 +92,7 @@ console.log(person5)
 
 // Getters y setters
 
-class GetPerson {
+class GetSetPerson {
 
     #name
     #age
@@ -106,13 +106,86 @@ class GetPerson {
         this.#bank = bank
     }
 
-    get names() {
+    get name() {
         return this.#name
+    }
+
+/*     get bank() {                             // SOLO PARA VER QUE SI LO CAMBIO
+        return this.#bank
+    } */
+
+    set bank(newbank) {
+        this.#bank = newbank
     }
 
 }
 
-let person6 = new GetPerson("Angel", 54, "angsis")
+let person6 = new GetSetPerson("Angel", 54, "angsis", "B4568465468")
 
 console.log(person6)
-console.log(person6.names)
+console.log(person6.name)
+person6.bank = "B1111111111"
+// console.log(person6.bank)  Era solo para ver que si lo cambio con la funcion set
+
+// Herencia
+
+class Animal {
+
+    constructor(name) {
+        this.name = name
+    }
+
+    sound() {
+        console.log("El animal emite un sonido genérico")
+    }
+}
+
+let animal = new Animal("León")
+console.log(animal)
+
+class Dog extends Animal {
+
+    run() {
+        console.log("El perro corre")
+    }
+
+    sound() {
+        //super.sound()  // solo si quieres que haga lo que hace la funcion padre (no se usa)
+        console.log(`El perro ${this.name} hace Guau!`)
+    }
+}
+
+let myDog = new Dog("AngelDog")
+
+console.log(myDog)
+myDog.run()
+myDog.sound()
+
+class Fish extends Animal {
+
+    constructor(name, size) {
+        super(name),
+        this.size = size
+    }
+
+    swim() {
+        console.log("El pez nada")
+    }
+}
+
+let myFish = new Fish("AngelFish", 20)
+
+console.log(myFish)
+myFish.swim()
+myFish.sound()
+
+// Métodos estáticos
+
+class MathOperations {    
+
+    static sum(a, b) {   // al colocar la palabra static no necesito instanciar
+        return a + b
+    }
+}
+
+console.log(MathOperations.sum(10, 220))
