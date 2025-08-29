@@ -58,9 +58,13 @@ const aceleracion = (x1, x2, t1, t2) => {
 // 7. Captura varias excepciones en un mismo try-catch
 console.log("---------------------- 7 -------------------------")
 try {
-    console.log(`La aceleración es: ${aceleracion(3, 6, 3, 1)}`)
+    console.log(`La aceleración es: ${aceleracion("0", 1000, 0, 10)}`)
 } catch (error) {
-    console.log("Se ha producido un error: ", error.message)
+    if (error instanceof TypeError) {
+        console.log("Se ha producido un error de Tipo: ", error.message)
+    } else if (error instanceof Error) {
+        console.log("Se ha producido el error: ", error.message)
+    }
 }
 
 // 8. Crea un bucle que intente transformar a float cada valor y capture y muestre los errores
