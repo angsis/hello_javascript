@@ -159,5 +159,5 @@ const myOperation = () => {
 try {
     retry(myOperation)
 } catch (error) {
-    console.error('Error final:', error.message)
+    console.log('Error final:', error.message)
 }
