@@ -90,5 +90,74 @@ for (let i = 0; i < myArray.length; i++) {
 
 // 9. Crea una función que verifique si un objeto tiene una propiedad específica y lance una excepción personalizada
 console.log("---------------------- 9 -------------------------")
+class propertyNoExist extends Error {
+    constructor(message, property) {
+        super(message),
+            this.property = property
+    }
+
+    propertyName() {
+        return this.property
+    }
+}
+
+function verificar(myObject, property) {
+    let result = false
+
+    for (let key in myObject) {
+        if (key == property) {
+            result = true
+        }
+    }
+
+    if (result == false) {
+        throw new propertyNoExist("Está propiedad no existe", property)
+    }
+
+    return result
+}
+
+let person = { name: "Angel Briceño", age: 54, gener: "Masculino", height: 80.2 }
+
+try {
+    let property = "pepe"
+    let result = verificar(person, property) == true ? "'Existe'" : "'No Existe'"
+    console.log(`La propiedad ${property} ${result}`)
+} catch (error) {
+    console.log(`Se ha producido un error: ${error.message}: ${error.propertyName()}`)
+    //error.propertyName()
+}
 
 // 10. Crea una función que realice reintentos en caso de error hasta un máximo de 10
+console.log("---------------------- 10 -------------------------")
+function retry(operation, maximumRetries = 10) {
+    for (let i = 0; i < maximumRetries; i++) {
+        try {
+            operation()
+            console.log('Operación exitosa.')
+            return
+        } catch (error) {
+            console.log(`Fallo en el intento ${i + 1}.`)
+            if (i === maximumRetries - 1) {
+                console.log('Todos los reintentos fallaron.')
+                throw error
+            }
+        }
+    }
+}
+
+let contador = 0
+const myOperation = () => {
+    contador++
+    console.log(`Ejecutando la operación. Intento #${contador}`)
+    if (contador < 15) {
+        throw new Error('¡La operación ha fallado!')
+    }
+    console.log('¡La operación ha tenido éxito!')
+}
+
+try {
+    retry(myOperation)
+} catch (error) {
+    console.error('Error final:', error.message)
+}
