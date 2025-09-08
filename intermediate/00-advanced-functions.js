@@ -56,11 +56,11 @@ handler.arrowGreeting(); // si no colocamos el punto y como no se esjecuta el II
 // Parámetros Rest (...)
 
 function sum(...numbers) {
-    let result = 0
-    for (let number of numbers) {
-        result += number
-    }
-    return result
+  let result = 0
+  for (let number of numbers) {
+    result += number
+  }
+  return result
 }
 
 console.log(sum(1, 2, 3, 4, 5))
@@ -69,4 +69,46 @@ console.log(sum(10, 15))
 // Operador Spread (...)
 
 const numbers = [1, 2, 3]
-function
+function sumWithSpread(a, b, c) {
+  return a + b + c
+}
+
+console.log(sumWithSpread(1, 2, 3)) // sin Spread
+console.log(sumWithSpread(...numbers))  // que el array tenga más elementos no es un problema, pero si tiene menos si habrá problemas
+
+// Closures (Clausuras) 
+
+function createCounter() {
+  let counter = 0
+  return function () {
+    counter++
+    console.log(`Contador: ${counter}`)
+  }
+}
+
+const counter = createCounter()
+counter()
+counter()
+counter()
+counter()
+
+const counter2 = createCounter()
+counter2()
+counter2()
+counter2()
+counter2()
+
+// Recursividad
+
+function factorial(n) {
+  if (n <= 1) {
+    return 1
+  }
+  return factorial(n-1) * n
+}
+
+console.log(factorial(5))
+
+// Funciones parcialies
+
+
