@@ -104,11 +104,57 @@ function factorial(n) {
   if (n <= 1) {
     return 1
   }
-  return factorial(n-1) * n
+  return factorial(n - 1) * n
 }
 
 console.log(factorial(5))
 
 // Funciones parcialies
 
+function partialSum(a) {
+  return function (b, c) {
+    return sum(a, b, c)
+  }
+}
 
+const sunwith = partialSum(5)
+console.log(sunwith(10, 3))
+console.log(sunwith(3, 3))
+
+// Currying
+
+function currySum(a) {
+  return function (b) {
+    return function (c) {
+      return function (d) {
+        return sum(a, b, c, d)
+      }
+    }
+  }
+}
+
+const sumAB = currySum(5)(5)
+const sumC = sumAB(3)
+console.log(sumC(10))
+console.log(sumC(20))
+
+// Callbacks
+
+function processData (data, callback) {
+    const result = sum(...data)
+    callback(result)
+}
+
+function processResult(result) {
+  console.log(result)
+}
+
+function processResult2(result) {
+  console.log(`Mi resultado es: ${result}`)
+}
+
+processData([1, 2, 3], processResult)
+processData([1, 2, 3], processResult2)
+processData([1, 2, 3], (result) => {
+  console.log(`Mi resultado en la arrow function es: ${result}`)
+})
