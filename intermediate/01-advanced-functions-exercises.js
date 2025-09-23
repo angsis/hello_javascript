@@ -125,7 +125,30 @@ console.log(greet(50, 1.80, 92))
 console.log(greet())
 
 // 8. Implementa un ejemplo que haga uso de Spread
+console.log("------------------------  8  -------------------------")
+function mediaGeom(...numbers) {
+    let elemen = numbers.length
+    let multNumbers = 1
+    for (i = 0; i < numbers.length; i++) {
+        multNumbers *= numbers[i]
+    }
+    return Math.pow(multNumbers, 1/elemen)
+}
+console.log(mediaGeom(5, 5, 5, 4))
+let numeros = [5, 5, 5, 4, 5]
+console.log(mediaGeom(...numeros))
 
 // 9. Implementa un retorno implícito
+const areaCirculo = (ratio) => Math.PI*ratio*ratio
+
+let areaDeCirculo = console.log(areaCirculo(20))
 
 // 10. Haz uso del this léxico
+let greeting = {
+    name: "Angel",
+    greet: function() {
+        console.log(`Hola, yo me llamo ${this.name}!!`)
+    }
+}
+
+greeting.greet()
