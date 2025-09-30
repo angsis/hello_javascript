@@ -82,3 +82,25 @@ console.log(sorted.includes(5))
 
 console.log(sorted.find(value => value == 4))
 console.log(sorted.find(value => value == 5))
+let firstEven = sorted.find(element => element % 2 == 0)
+console.log(firstEven)
+
+// findIndex
+
+let firstEvenIndex = sorted.findIndex(element => element % 2 == 0)
+console.log(firstEvenIndex)
+
+
+// Sets avanzados
+
+// Operaciones
+
+// Eliminación de duplicados
+
+let numberArray = [1, 2, 2, 3, 4, 5, 6, 6]
+numberArray = [...new Set(numberArray)]
+console.log(numberArray)
+
+// Unión
+
+cons
