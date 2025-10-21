@@ -103,4 +103,59 @@ console.log(numberArray)
 
 // Unión
 
-cons
+const setA = new Set([1, 2 ,3])
+const setB = new Set([2, 3, 4, 5])
+const union = new Set([...setA, ...setB])
+console.log(union)
+
+// Intersección
+
+const intersection = new Set([...setA].filter(element => setB.has(element)))
+console.log(intersection)
+
+// Diferencia
+
+const difference = new Set([...setA].filter(element => !setB.has(element)))
+console.log(difference)
+
+// Conversión
+
+console.log([...setA])
+
+
+// Iteración
+
+// forEach
+
+setA.forEach(element => console.log(element))
+
+
+// Maps avanzados
+
+let myMap = new Map([
+    ["name", "Angel"],
+    ["age", 55]
+])
+
+console.log(myMap)
+
+// -Iteración
+
+myMap.forEach((value, key) => console.log(`${key}: ${value}`))
+
+// -Conversión
+
+// Mapa a Array
+
+const arrayFromMap = Array.from(myMap)
+console.log(arrayFromMap)
+
+// Mapa a objeto
+
+const objectFromMap = Object.fromEntries(myMap)
+console.log(objectFromMap)
+
+// Objeto a Mapa
+
+const mapFromObject = new Map(Object.entries(objectFromMap))
+console.log(mapFromObject)
